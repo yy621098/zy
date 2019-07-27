@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			html,body{
+				height: 100%;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="app">
+		<input type="button" value="切歌" @click="changeGe">
+		<hr/>
+		<component v-bind:is="currentCom"></component>
+		</div>
+	</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+	let comA={
+		data:function(){
+			return{
+				
+			}
+		},
+		template:`,
+			<div>
+				<p>山丘</>
+			</div>
+		`
+	}
+	
+		let comB={
+		data:function(){
+			return{
+				
+			}
+		},
+		template:`,
+			<div>
+				<p>为你我受冷风吹</>
+			</div>
+		`
+	}
+	
+			let comC={
+		data:function(){
+			return{
+				
+			}
+		},
+		template:`,
+			<div>
+				<p>为你我受冷风吹</>
+			</div>
+		`
+	}
+	
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			currentCom:comB
+		},
+		components:{
+			comA,
+			comB
+		},
+		methods:{
+			changeGe:function(){
+				this.currentCom=(this.currentCom==comA?comB:comA);
+			}
+		}
+		
+	});
+</script>
